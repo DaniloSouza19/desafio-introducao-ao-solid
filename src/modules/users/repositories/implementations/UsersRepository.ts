@@ -49,9 +49,9 @@ class UsersRepository implements IUsersRepository {
     const user = this.users.find((user) => user.id === receivedUser.id);
 
     user.admin = true;
-    user.created_at = new Date();
+    user.updated_at = new Date();
 
-    return receivedUser;
+    return user;
   }
 
   list(): User[] {
