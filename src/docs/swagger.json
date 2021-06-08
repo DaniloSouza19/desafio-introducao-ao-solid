@@ -39,6 +39,61 @@
             "description": "Email Already exists"
           }
         }
+      },
+      "get": {
+        "tags": ["User"],
+        "summary": "List All Users",
+        "parameters": [
+          {
+            "in": "header",
+            "description": "User Id as admin",
+            "schema": {
+              "type": "string"
+            },
+            "example": {
+              "user_id": "f3a40985-892e-4dea-a9b3-aacd8ea7e8b4"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "admin": {
+                        "type": "boolean"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "User not found"
+          }
+        }
       }
     }
   }
